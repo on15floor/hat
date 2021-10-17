@@ -26,10 +26,10 @@ def selection_sort(some_list: list) -> str:
     _iter = 0  # кол-во итераций
     sorted_list = []
     for i in range(len(some_list)):
-        _iter += 1
+        _iter += 2  # т.к. в функции по поиску элемента, мы опять проходим список
         smallest = find_smallest(some_list)
         sorted_list.append(some_list.pop(smallest))
-    res = f'[Selection Sort]> List was sorted with {_iter} iteration.\n{sorted_list[:10]}...'
+    res = f'[Selection Sort]> List was sorted with {_iter} iteration: {sorted_list[:10]}...'
     return res
 
 

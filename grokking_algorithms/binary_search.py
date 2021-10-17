@@ -3,8 +3,9 @@ from utils.decorators import print_func_duration
 
 
 @print_func_duration
-def simple_search(some_list, searching_item):
+def simple_search(some_list: list, searching_item: int) -> str:
     """ Функция осуществляет обычный поиск
+    Скорость выполнения: O(n), n=len(some_list)
     :param some_list: Отсортированный список, состоящем из цифр
     :param searching_item: Искомый элемент
     :return: Найденный элемент
@@ -19,9 +20,9 @@ def simple_search(some_list, searching_item):
 
 
 @print_func_duration
-def binary_search(some_list, searching_item):
+def binary_search(some_list: list, searching_item: int):
     """ Функция осуществляет бинарный поиск
-    Скорость выполнения: log(len(some_list))
+    Скорость выполнения: O(log(n)), n=len(some_list)
     :param some_list: Отсортированный список, состоящем из цифр
     :param searching_item: Искомый элемент
     :return: Найденный элемент

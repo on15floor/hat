@@ -1,4 +1,3 @@
-from utils.generators import random_digits_list_generator
 from utils.decorators import print_func_duration
 
 
@@ -26,14 +25,8 @@ def selection_sort(some_list: list) -> str:
     _iter = 0  # кол-во итераций
     sorted_list = []
     for i in range(len(some_list)):
-        _iter += 2  # т.к. в функции по поиску элемента, мы опять проходим список
+        _iter += 2  # т.к. в функции по поиску элемента мы опять проходим список
         smallest = find_smallest(some_list)
         sorted_list.append(some_list.pop(smallest))
     res = f'[Selection Sort]> List was sorted with {_iter} iteration: {sorted_list[:10]}...'
     return res
-
-
-if __name__ == '__main__':
-    some_l = random_digits_list_generator(100)
-
-    print(selection_sort(some_list=some_l))

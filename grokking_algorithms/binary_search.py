@@ -1,26 +1,8 @@
-from utils.generators import arranged_digits_list_generator
 from utils.decorators import print_func_duration
 
 
 @print_func_duration
-def simple_search(some_list: list, searching_item: int) -> str:
-    """ Функция осуществляет обычный поиск
-    Скорость выполнения: O(n), n=len(some_list)
-    :param some_list: Отсортированный список, состоящем из цифр
-    :param searching_item: Искомый элемент
-    :return: Найденный элемент
-    """
-    _iter = 0  # кол-во итераций
-    for i in range(0, len(some_list)):
-        _iter += 1
-        guess = some_list[i]
-        if guess == searching_item:
-            res = f'[Simple Search]> Element {guess} found with {_iter} iteration.'
-            return res
-
-
-@print_func_duration
-def binary_search(some_list: list, searching_item: int):
+def binary_search(some_list: list, searching_item: int) -> str:
     """ Функция осуществляет бинарный поиск
     Скорость выполнения: O(log(n)), n=len(some_list)
     :param some_list: Отсортированный список, состоящем из цифр
@@ -42,12 +24,3 @@ def binary_search(some_list: list, searching_item: int):
             high = mid - 1
         else:
             low = mid + 1
-    return None
-
-
-if __name__ == '__main__':
-    some_l = arranged_digits_list_generator(1000)
-    item = 999
-
-    print(simple_search(some_list=some_l, searching_item=item))
-    print(binary_search(some_list=some_l, searching_item=item))

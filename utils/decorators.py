@@ -18,3 +18,23 @@ def print_func_duration(func):
         return res
 
     return inner
+
+
+class PrintFuncDuration(object):
+    """ Выводит время исполнения функции. Возможно применение к рекурсивным функциям
+    """
+    def __init__(self, f):
+        self.f = f
+        self.active = False
+
+    def __call__(self, *args, **kwargs):
+        if self.active:
+            return self.f(*args, **kwargs)
+        start_time = datetime.now()
+        self.active = True
+        res = self.f(*args, **kwargs)
+        end_time = datetime.now()
+        self.active = False
+        exec_time = end_time - start_time
+        print(f'[i]> {self.f.__name__}() execution time: {exec_time.seconds * 1000 + exec_time.microseconds / 1000}ms \n')
+        return res

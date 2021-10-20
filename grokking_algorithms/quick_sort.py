@@ -1,4 +1,4 @@
-from utils.decorators import PrintFuncDuration, print_func_duration
+from utils.decorators import print_func_duration
 
 # Кол-во итераций
 _iter = 0

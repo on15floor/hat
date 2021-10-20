@@ -38,14 +38,26 @@ class Graph:
         """
         self.directed_graph[node].append(adjacent_node)
 
+    def add_endpoint_to_directed_graph(self) -> None:
+        """ Добавляет к словарю с направленным графом конечные точки
+        :return: None
+        """
+        end_point = {}
+        for v in self.directed_graph.values():
+            for i in v:
+                if i not in self.directed_graph.keys():
+                    end_point[i] = []
+        self.directed_graph.update(end_point)
+
     @property
     def get(self):
         """ Метод возвращает сформированный граф
         :return:
         """
         if self.directed_graph:
-            return self.directed_graph
+            self.add_endpoint_to_directed_graph()
+            return dict(self.directed_graph)
         elif self.undirected_graph:
-            return self.undirected_graph
+            return dict(self.undirected_graph)
         else:
             return None

@@ -1,8 +1,13 @@
-from tricks.dicts_funcs import dict_not_null, dict_only_required_params, dict_mapping_data
+from tricks.dicts_funcs import dict_not_null, dict_only_required_params, dict_mapping_data, dict_diff
 
 input_dict = {
     'last_name': 'Ivanov',
     'first_name': 'Ivan',
+    'middle_name': None,
+}
+input_second_dict = {
+    'last_name': 'Ivanov',
+    'first_name': 'Petr',
     'middle_name': None,
 }
 dict_mapping = {
@@ -18,3 +23,5 @@ if __name__ == '__main__':
     print(dict_only_required_params(input_dict, required_params))
     # Mapping словаря
     print(dict_mapping_data(input_dict, dict_mapping))
+    # Поиск отличающихся ключей
+    print(dict_diff(input_dict, input_second_dict))

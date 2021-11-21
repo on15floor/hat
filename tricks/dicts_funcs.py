@@ -8,6 +8,12 @@ def dict_only_required_params(input_dict: dict, required_params: list) -> dict:
     return {k: input_dict[k] for k in input_dict if k in required_params}
 
 
-def dict_mapping_data(input_dict: dict, mapping_dict: dict):
+def dict_mapping_data(input_dict: dict, mapping_dict: dict) -> dict:
     """ Изменяет ключи исходного словаря на ключи dict_mapping """
     return {mapping_dict.get(k, k): v for k, v in input_dict.items()}
+
+
+def dict_diff(first_dict: dict, second_dict: dict) -> list:
+    """ Возвращает список ключей, которые отличаются в словарях
+    """
+    return [k for k in first_dict if first_dict[k] != second_dict[k]]
